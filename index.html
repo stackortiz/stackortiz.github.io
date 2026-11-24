@@ -207,9 +207,16 @@
                 var open = mainH2.classList.contains('expanded');
                 var subs = collectSubHeaders(mainH2);
                 subs.forEach(function(sub) {
-                    toggleVisibility(sub);
                     var ul = sub.nextElementSibling;
-                    if (ul && ul.tagName === 'UL') { toggleVisibility(ul); }
+                    if (ul && ul.tagName === 'UL') {
+                        if (!open) {
+                            ul.classList.remove('expanded-ul');
+                            ul.classList.add('collapsed-ul');
+                        } else {
+                            ul.classList.remove('collapsed-ul');
+                            ul.classList.add('expanded-ul');
+                        }
+                    }
                 });
                 mainH2.classList.toggle('expanded', !open);
             });
