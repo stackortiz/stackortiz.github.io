@@ -2261,7 +2261,7 @@
 <script>
 
     // Toggle accordion: click a sub-section h2 to collapse/expand its bookmarks
-    document.addEventListener('DOMContentLoaded', function() {
+    (function() {
         document.querySelectorAll('h2.sub-section').forEach(function(h2) {
             var ul = h2.nextElementSibling;
             // Initialize: start collapsed, show caret
@@ -2288,7 +2288,7 @@
                 }
             });
         });
-    });
+    })();
 
     function toggleVisibility(el) {
         if (el.style.display === 'none') { el.style.display = ''; }
